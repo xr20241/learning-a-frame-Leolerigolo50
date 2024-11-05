@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texture</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <a-asset>
+            <img src="textures/Brick/basecolor.jpg" id="base">
+            <img src="textures/Brick/normal.jpg" id="normal">
+            <img src="textures/Brick/height.png" id="height">
+        </a-asset>
+        <a-box
+            src="#base"
+            repeat="2 2"
+            normal-map="#normal"
+            normal-texture-repeat="2 2"
+            position="-1 1.5 -2"
+        ></a-box>
+        <a-sphere
+            src="#base"
+            position="1 1.5 -2"
+        ></a-sphere>
+    </a-scene>
+</body>
+</html>
+
+<!-- 
+If we want to have a texture, we need to put it inside tag asset and we put the image that we want
+    to use for the texture and give them IDs.
+Normal Map : A normal map in 3D graphics is a texture that simulates surface details by altering the
+    lighting of an object without adding actual geometry.
+Declare in the src attributes to put asset on objects with an hashtag and no color is needed
+Use repeat to have 2 times or more (hori or/and vert) the picture (here = more bricks)
+Repetitions on src texture need to be there also for normal texture
+Look at a-frame documentation on textures to know others attributes to make a texture more realistic
+-->
