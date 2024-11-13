@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Model (glb/glTF)</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <!-- We need an extra JS library: aframe-extras -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <a-asset>
+            <a-asset-item id="laptop" src="models/Notebook.gltf"></a-asset-item>
+        </a-asset>
+        <a-entity
+            gltf-model="#laptop"
+            position="-5  0 -5"
+            rotation="0 180 0"
+            animation-mixer="
+                clip: ArmatureAction;
+                loop: pingpong;
+            "
+        ></a-entity>
+        <a-gltf-model
+            src="models/Island.gltf"
+            position="0  0 -5"
+            rotation="0 150 0"
+            scale="0.2 0.2 0.2"
+        ></a-gltf-model>
+        <a-entity
+            gltf-model="models/Notebook.gltf"
+            position="5  0 -5"
+            animation-mixer="
+                clip: ArmatureAction;
+                loop: pingpong;
+            "
+        ></a-entity>
+    </a-scene>
+</body>
+</html>
+
+<!-- 
+We can have many models for free on sketchfab.com and download glTF and put them in an extra
+folders models.
+Use the tag a-asset-item to include glTF objects if we want to include them just by using their id.
+Otherwise, we use their name and their path
+To include our model there are severals ways : use a-gltf-model tag with src or entity with gltf-model
+If we have severals animations in our model, we need to specify her name with clip
+-->
