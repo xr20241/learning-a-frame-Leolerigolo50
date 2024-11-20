@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Component</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <!-- <a-text
+            value="This is a text"
+            color="#f0f"
+            position="0 1.5 -2"
+        ></a-text> -->
+        <a-entity
+            text = "
+                value: This is a text built with a-entity;
+                color: blue;
+                wrapCount: 11;
+                align: center;
+                negate: false;
+                font: ./fonts/Super-Childish-msdf.json;
+            "
+            position = "0 1.5 -2"
+            geometry = "
+                primitive: plane;
+                width: auto;
+                height: auto;
+            "
+            material = "color: #ccc"
+        ></a-entity>
+    </a-scene>
+</body>
+</html>
+
+<!-- 
+Remember : for all objects in a-frame, we have to declare the position
+Like usual, we can use a-text or a-entity
+Text is placed in a fixed wrapped horizontal space. If we want to have an appropriate size,
+we need to set what we call wrapCount
+"Negate :false" is used to set the specified color as background. Here it will be written in white
+on a blue background
+To use our own font, go the text a-frame documentation and we can find the web-based MSDF Tool. There,
+we need to upload our font, select any characters we want to include and download it. Then, we put it on
+our folder and we access to it by using his link (l.23)
+We can specified a geometry to be the text box
+-->
